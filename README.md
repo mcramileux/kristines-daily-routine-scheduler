@@ -1,4 +1,4 @@
-# Kristine's Basic Day Scheduler
+# Kristine's Daily Routine Scheduler
 (Fifth Challenge: Third-Party APIs)
 
 ## Description
