@@ -9,26 +9,6 @@ $(function () {
    //<!--Display the current date and hour-->
    // Get the current hour using Day.js in 24-hour format
    var currentHour = dayjs().hour();
-  // Loop through each time-block element using the jQuery .each() method
-// $(".time-block").each(function() {
-//   // Get the hour from the id attribute of the current element and convert to a number
-//   var blockHour = parseInt($(this).attr("id"));
-  
-//   // Compare the current hour to the hour of the current element and add or remove classes accordingly
-//     if (blockHour < currentHour) {
-//       $(this).addClass("past");
-//       $(this).removeClass("present future");
-//     } else if (blockHour === currentHour) {
-//       $(this).addClass("present");
-//       $(this).removeClass("past future");
-//     } else {
-//       $(this).addClass("future");
-//       $(this).removeClass("past present");
-//    }
-// });
-
-
-   //<!-----Save button and local storage--->
    $(".saveBtn").on("click", function() {
     var eventText = $(this).siblings(".description").val();
     var eventId = $(this).parent().attr("id");
@@ -36,52 +16,37 @@ $(function () {
     localStorage.setItem(eventId, eventText);
   });
   
-   
-
   var textAreas = document.querySelectorAll(".description")
   for (let i = 0; i < textAreas.length; i++) {
     let hour = i+9
-    textAreas[i].value = localStorage.getItem("hour-"+hour)
-    
+    textAreas[i].value = localStorage.getItem("hour-"+hour) 
   }
- //<!----Clear local storage--->
-  //hour-9 (9am-5pm???) 
-  //timeBlock Past - Gray, Red - Present, Green - Future -ask how to change the color
-  // if ($(".row").s)
-// console.log($(".row").attr("id"))
-let hour;
-for (let i = 0; i < textAreas.length; i++) {
-  hour = i+9
-  // console.log(hour)
-  if(hour == dayjs().hour()){
+ 
+  let hour;
+    for (let i = 0; i < textAreas.length; i++) {
+    hour = i+9
+    // console.log(hour)
+
+    if(hour == dayjs().hour()){
     // console.log("test")
     console.log(hour)
     $("#hour-"+hour).addClass("present")
   }
-  else   // console.log(hour)
-  if(hour < dayjs().hour()){
+
+    else   // console.log(hour)
+    if(hour < dayjs().hour()){
     // console.log("test")
     console.log(hour)
     $("#hour-"+hour).addClass("past")
   }
-  else   // console.log(hour)
-  if(hour > dayjs().hour()){
+
+    else   // console.log(hour)
+    if(hour > dayjs().hour()){
     // console.log("test")
     console.log(hour)
     $("#hour-"+hour).addClass("future")
   }
-}
-// $(".row").attr("id")
-// console.log($(".row").children("textarea").val())
-
-
-
-
-
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
-
+};
 
 //  TODO: Add a listener for click events on the save button. This code should
 //     use the id in the containing time-block as a key to save the user input in
