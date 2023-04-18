@@ -33,17 +33,17 @@ $(function () {
     $("#hour-"+hour).addClass("present")
   }
 
-    else   // console.log(hour)
-    if(hour < dayjs().hour()){
-    // console.log("test")
-    console.log(hour)
+    else if(hour < dayjs().hour()){
+      // console.log(hour)
+      // console.log("test")
+      console.log(hour)
     $("#hour-"+hour).addClass("past")
   }
 
-    else   // console.log(hour)
-    if(hour > dayjs().hour()){
-    // console.log("test")
-    console.log(hour)
+    else if(hour > dayjs().hour()){
+      // console.log(hour)
+      // console.log("test")
+      console.log(hour)
     $("#hour-"+hour).addClass("future")
   }
 };
